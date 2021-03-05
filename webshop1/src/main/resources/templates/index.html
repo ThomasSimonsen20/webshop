@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+<table class="table table-info">
+
+    <tr>
+        <th>Navn</th>
+        <th>Pris</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.getProduct_Name()}">kaffe</td>
+        <td th:text="${product.getProduct_Price()}">100</td>
+        <td><a th:href="@{'/update/' + ${product.getProduct_Id()}}" class="btn btn-primary">Opdater</a></td>
+        <td><a th:href="@{'/delete/' + ${product.getProduct_Id()}}" class="btn btn-danger">Slet</a></td>
+    </tr>
+</table>
+
+<a href="createProduct" class="btn btn-secondary">Opret product</a>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+    </div>
+</div>
+
+</body>
+</html>
